@@ -6,7 +6,6 @@ module.exports = class extends Command {
 		super(...args, {
 			runIn: ['text'],
 			aliases: [],
-			promptLimit: 0,
 			permissionLevel: 6,
 			description: 'Change the prefix of the bot for your server.',
 			extendedHelp: [
@@ -14,15 +13,19 @@ module.exports = class extends Command {
 				'',
 				'<prefix>prefix newPrefix',
 				'',
+				'Reset your prefix to the default prefix',
+				'',
+				'<prefix>prefix',
+				'',
 				'**__Example Use__**',
 				'.prefix !'
 			].join('\n'),
-			usage: '[reset|prefix:str{1,10}]'
+			usage: '[prefix:str{1,10}]'
 		});
 	}
 
 	async run(message, [prefix]) {
-		if (prefix === 'reset') return this.reset(message);
+		if (!prefix) return this.reset(message);
 
 		if (message.guild.settings.prefix === prefix) throw message.language.get('CONFIGURATION_EQUALS');
 
