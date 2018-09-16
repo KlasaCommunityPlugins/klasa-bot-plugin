@@ -57,7 +57,6 @@ These are all the commands that come built in with this plugin.
 
 - [x] 8ball -
 - [x] banner -
-- [x] biggify -
 - [x] card -
 - [x] catfacts -
 - [x] choice -
@@ -65,7 +64,7 @@ These are all the commands that come built in with this plugin.
 - [x] coinflip -
 - [x] compliment -
 - [x] dogfacts -
-- [x] faceapp -
+- [x] faceapp* -
 - [x] insult -
 - [x] markov -
 - [x] randquote -
@@ -96,7 +95,6 @@ These are all the commands that come built in with this plugin.
 - [x] kick -
 - [x] mute -
 - [x] prune -
-- [x] softban -
 - [x] unban -
 - [x] unmute -
 
@@ -113,17 +111,17 @@ These are all the commands that come built in with this plugin.
 
 - [x] followage* -
 - [x] hastebin -
-- [x] movie -
+- [x] movie* -
 - [x] price -
 - [x] randomreddit -
-- [x] remindme -
-- [x] role-info -
-- [x] server-info -
+- [x] remind -
+- [x] roleinfo -
+- [x] server -
 - [x] subreddit -
 - [x] topinvites -
-- [x] tvshow -
-- [x] twitch -
-- [x] user-info -
+- [x] tvshow* -
+- [x] twitch* -
+- [x] user -
 - [x] wikipedia -
 - [x] wolfram -
 
