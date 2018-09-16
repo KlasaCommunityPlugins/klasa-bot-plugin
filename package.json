@@ -1,14 +1,14 @@
 {
-  "name": "klasa-mod-plugin",
-  "version": "1.0.0",
-  "description": "A klasa plugin for any discord bot using the klasa framework to enable a ton of moderation features easily.",
+  "name": "klasa-bot-plugin",
+  "version": "1.0.3",
+  "description": "A klasa plugin for any discord bot using the klasa framework to enable a ton of features easily.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Skillz4Killz/klasa-mod-plugin.git"
+    "url": "git+https://github.com/Skillz4Killz/klasa-bot-plugin.git"
   },
   "keywords": [
     "klasa",
@@ -17,11 +17,17 @@
   "author": "Zishan Skillz4Killz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Skillz4Killz/klasa-mod-plugin/issues"
+    "url": "https://github.com/Skillz4Killz/klasa-bot-plugin/issues"
   },
-  "homepage": "https://github.com/Skillz4Killz/klasa-mod-plugin#readme",
+  "homepage": "https://github.com/Skillz4Killz/klasa-bot-plugin#readme",
   "dependencies": {
-    "discord.js": "github:hydrabolt/discord.js",
-    "klasa": "github:dirigeants/klasa"
+    "canvas": "^1.6.12",
+    "d3-cloud": "^1.2.5",
+    "faceapp": "^0.4.4",
+    "fast-html-parser": "^1.0.1",
+    "figlet": "^1.2.0",
+    "heapdump": "^0.3.9",
+    "jimp": "^0.5.0",
+    "markovchain": "^1.0.2"
   }
 }

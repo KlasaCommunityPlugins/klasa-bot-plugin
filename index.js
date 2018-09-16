@@ -1,14 +1,17 @@
 const { Client: { plugin } } = require('klasa');
 
+const mainDirectory = `${__dirname}/`;
+
 module.exports = {
+
 	[plugin]() {
-		this.arguments.registerCoreDirectory('./arguments/');
-		this.commands.registerCoreDirectory('./commands/');
-		this.events.registerCoreDirectory('./events');
-		this.extendables.registerCoreDirectory('./extendables');
-		this.finalizers.registerCoreDirectory('./finalizers');
-		this.inhibitors.registerCoreDirectory('./inhibitors');
-		this.languages.registerCoreDirectory('./languages');
-		this.tasks.registerCoreDirectory('./tasks');
+		this.arguments.registerCoreDirectory(mainDirectory);
+		this.commands.registerCoreDirectory(mainDirectory);
+		this.events.registerCoreDirectory(mainDirectory);
+		// this.extendables.registerCoreDirectory(mainDirectory);
+		this.finalizers.registerCoreDirectory(mainDirectory);
+		this.inhibitors.registerCoreDirectory(mainDirectory);
+		this.languages.registerCoreDirectory(mainDirectory);
+		this.tasks.registerCoreDirectory(mainDirectory);
 	}
 };
