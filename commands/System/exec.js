@@ -12,13 +12,13 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [input]) {
-		const result = await exec(input, { timeout: 'timeout' in msg.flags ? Number(msg.flags.timeout) : 60000 })
+	async run(message, [input]) {
+		const result = await exec(input, { timeout: 'timeout' in message.flags ? Number(message.flags.timeout) : 60000 })
 			.catch(error => ({ stdout: null, stderr: error }));
 		const output = result.stdout ? `**\`OUTPUT\`**${codeBlock('prolog', result.stdout)}` : '';
 		const outerr = result.stderr ? `**\`ERROR\`**${codeBlock('prolog', result.stderr)}` : '';
 
-		return msg.sendMessage([output, outerr].join('\n'));
+		return message.sendMessage([output, outerr].join('\n'));
 	}
 
 };

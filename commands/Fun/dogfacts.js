@@ -6,8 +6,8 @@ module.exports = class extends Command {
 		super(...args, { description: 'Gives you a random dog fact.' });
 	}
 
-	run(msg) {
-		return msg.sendMessage(facts[Math.floor(Math.random() * facts.length)]);
+	run(message) {
+		return message.sendMessage(facts[Math.floor(Math.random() * facts.length)]);
 	}
 
 };

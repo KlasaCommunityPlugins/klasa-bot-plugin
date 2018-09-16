@@ -10,11 +10,11 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
+	async run(message) {
 		const joke = await fetch('http://api.yomomma.info')
 			.then(response => response.json())
 			.then(body => body.joke);
-		return msg.sendMessage(`📢 **Yomomma joke:** *${joke}*`);
+		return message.sendMessage(`📢 **Yomomma joke:** *${joke}*`);
 	}
 
 };

@@ -11,13 +11,14 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
+			enabled: false,
 			description: 'Returns information on a Twitch.tv Account',
 			usage: '<name:str>'
 		});
 		this.timestamp = new Timestamp('DD-MM-YYYY');
 	}
 
-	async run(msg, [twitchName]) {
+	async run(message, [twitchName]) {
 		const url = new URL(`https://api.twitch.tv/kraken/channels/${encodeURIComponent(twitchName)}`);
 		url.search = query;
 
@@ -35,7 +36,7 @@ module.exports = class extends Command {
 			.addField('Created On', creationDate, true)
 			.addField('Channel Views', body.views, true);
 
-		return msg.sendEmbed(embed);
+		return message.sendEmbed(embed);
 	}
 
 };

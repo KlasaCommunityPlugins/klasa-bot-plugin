@@ -111,7 +111,7 @@ These are all the commands that come built in with this plugin.
 
 ### Tools
 
-- [x] followage -
+- [x] followage* -
 - [x] hastebin -
 - [x] movie -
 - [x] price -
@@ -151,6 +151,8 @@ These are all the commands that come built in with this plugin.
 - [x] Italian -
 - [x] Romanian -
 - [x] Turkish -
+
+* Requires a little extra setup by you.
 
 # Credits
 

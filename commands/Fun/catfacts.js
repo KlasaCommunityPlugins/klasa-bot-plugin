@@ -10,11 +10,11 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
+	async run(message) {
 		const fact = await fetch('https://catfact.ninja/fact')
 			.then(response => response.json())
 			.then(body => body.fact);
-		return msg.sendMessage(`📢 **Catfact:** *${fact}*`);
+		return message.sendMessage(`📢 **Catfact:** *${fact}*`);
 	}
 
 };

@@ -14,16 +14,16 @@ module.exports = class extends Extendable {
 
 };
 
-const awaitReaction = async (msg, message) => {
+const awaitReaction = async (message, message) => {
 	await message.react('🇾');
 	await message.react('🇳');
-	const data = await message.awaitReactions(reaction => reaction.users.has(msg.author.id), { time: 20000, max: 1 });
+	const data = await message.awaitReactions(reaction => reaction.users.has(message.author.id), { time: 20000, max: 1 });
 	if (data.firstKey() === '🇾') return true;
 	throw null;
 };
 
-const awaitMessage = async (msg) => {
-	const messages = await msg.channel.awaitMessages(mes => mes.author === msg.author, { time: 20000, max: 1 });
+const awaitMessage = async (message) => {
+	const messages = await message.channel.awaitMessages(mes => mes.author === message.author, { time: 20000, max: 1 });
 	if (messages.size === 0) throw null;
 	const message = await messages.first();
 	if (message.content.toLowerCase() === 'yes') return true;

@@ -11,7 +11,7 @@ module.exports = class extends Command {
 		this.errorMessage = `There was an error. Reddit may be down, or the subreddit doesnt exist.`;
 	}
 
-	async run(msg, [subreddit]) {
+	async run(message, [subreddit]) {
 		const data = await fetch(`https://www.reddit.com/r/${subreddit}/random.json`)
 			.then(response => response.json())
 			.then(body => {
@@ -20,11 +20,11 @@ module.exports = class extends Command {
 			})
 			.catch(() => { throw this.errorMessage; });
 
-		if (data.over_18 && !msg.channel.nsfw) {
+		if (data.over_18 && !message.channel.nsfw) {
 			throw 'I cant post a NSFW image in this channel unless you mark it as NSFW!';
 		}
 
-		return msg.sendMessage(data.url);
+		return message.sendMessage(data.url);
 	}
 
 };

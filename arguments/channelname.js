@@ -12,14 +12,14 @@ function resolveChannel(query, guild) {
 
 module.exports = class extends Argument {
 
-	async run(arg, possible, msg) {
-		if (!msg.guild) return this.channel(arg, possible, msg);
-		const resChannel = resolveChannel(arg, msg.guild);
+	async run(arg, possible, message) {
+		if (!message.guild) return this.channel(arg, possible, message);
+		const resChannel = resolveChannel(arg, message.guild);
 		if (resChannel) return resChannel;
 
 		const results = [];
 		const reg = new RegExp(regExpEsc(arg), 'i');
-		for (const channel of msg.guild.channels.values()) {
+		for (const channel of message.guild.channels.values()) {
 			if (reg.test(channel.name)) results.push(channel);
 		}
 

@@ -8,6 +8,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
+			enabled: false,
 			aliases: ['movies', 'film', 'films'],
 			description: 'Finds a movie on TMDB.org',
 			extendedHelp: 'e.g. `s.movie infinity war, 2`',
@@ -16,7 +17,7 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [query, page = 1]) {
+	async run(message, [query, page = 1]) {
 		const url = new URL('https://api.themoviedb.org/3/search/movie');
 		url.search = new URLSearchParams([['api_key', tmdbAPIkey], ['query', query]]);
 
@@ -41,7 +42,7 @@ module.exports = class extends Command {
 			.addField('Adult Content', movie.adult ? 'Yep' : 'Nope', true)
 			.addField('Release Date', movie.release_date);
 
-		return msg.sendEmbed(embed);
+		return message.sendEmbed(embed);
 	}
 
 };

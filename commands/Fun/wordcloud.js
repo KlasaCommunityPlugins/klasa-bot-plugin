@@ -18,14 +18,14 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
+	async run(message) {
 		const finalImage = createCanvas(2000, 2000);
 		const ctx = finalImage.getContext('2d');
 		const wordBank = {};
 
-		let messageBank = await msg.channel.messages.fetch({ limit: 100 });
+		let messageBank = await message.channel.messages.fetch({ limit: 100 });
 		for (let i = 1; i < messageLimitHundreds; i++) {
-			messageBank = messageBank.concat(await msg.channel.messages.fetch({ limit: 100, before: messageBank.last().id }));
+			messageBank = messageBank.concat(await message.channel.messages.fetch({ limit: 100, before: messageBank.last().id }));
 		}
 
 		for (const message of messageBank.values()) {
@@ -54,7 +54,7 @@ module.exports = class extends Command {
 				ctx.rotate(-rotation);
 			}
 			const buffer = finalImage.toBuffer();
-			return msg.sendMessage(new MessageAttachment(buffer, 'image.jpg'));
+			return message.sendMessage(new MessageAttachment(buffer, 'image.jpg'));
 		};
 
 

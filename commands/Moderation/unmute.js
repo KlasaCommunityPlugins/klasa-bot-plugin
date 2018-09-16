@@ -13,13 +13,13 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [member, ...reason]) {
-		if (member.roles.highest.position >= msg.member.roles.highest.position) throw 'You cannot unmute this user.';
-		if (!member.roles.has(msg.guild.settings.roles.muted)) throw 'This user is not muted.';
+	async run(message, [member, ...reason]) {
+		if (member.roles.highest.position >= message.member.roles.highest.position) throw 'You cannot unmute this user.';
+		if (!member.roles.has(message.guild.settings.roles.muted)) throw 'This user is not muted.';
 
-		await member.roles.remove(msg.guild.settings.roles.muted);
+		await member.roles.remove(message.guild.settings.roles.muted);
 
-		return msg.sendMessage(`${member.user.tag} was unmuted.${reason ? ` With reason of: ${reason}` : ''}`);
+		return message.sendMessage(`${member.user.tag} was unmuted.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

@@ -13,13 +13,13 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [user, ...reason]) {
-		const bans = await msg.guild.fetchBans();
+	async run(message, [user, ...reason]) {
+		const bans = await message.guild.fetchBans();
 		if (bans.has(user.id)) {
-			await msg.guild.members.unban(user, reason.join(' '));
-		}
+			await message.guild.members.unban(user, reason.join(' '));
+		} else throw 'This user was not banned so I can not unban them.';
 
-		return msg.sendMessage(`${user.tag} was unbanned.${reason ? ` With reason of: ${reason}` : ''}`);
+		return message.sendMessage(`${user.tag} was unbanned.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

@@ -10,12 +10,13 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
+			enabled: false,
 			description: 'Query Wolfram Alpha with any mathematical question.',
 			usage: '<query:str>'
 		});
 	}
 
-	async run(msg, [query]) {
+	async run(message, [query]) {
 		const url = new URL('http://api.wolframalpha.com/v2/query');
 		url.search = new URLSearchParams([
 			['input', query],
@@ -31,7 +32,7 @@ module.exports = class extends Command {
 
 		if (!pods || pods.error) throw "Couldn't find an answer to that question!";
 
-		return msg.sendMessage([
+		return message.sendMessage([
 			`**Input Interpretation:** ${pods[0].subpods[0].plaintext}`,
 			`**Result:** ${pods[1].subpods[0].plaintext.substring(0, 1500)}`
 		].join('\n'));

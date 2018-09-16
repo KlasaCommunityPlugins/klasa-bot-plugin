@@ -11,11 +11,11 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
+	async run(message) {
 		const url = await fetch('https://dog.ceo/api/breeds/image/random')
 			.then(response => response.json())
 			.then(body => body.message);
-		return msg.channel.sendFile(url);
+		return message.channel.sendFile(url);
 	}
 
 };

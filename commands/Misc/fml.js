@@ -6,10 +6,13 @@ const HTMLParser = require('fast-html-parser');
 module.exports = class extends Command {
 
 	constructor(...args) {
-		super(...args, { description: 'Gets a random FML story.' });
+		super(...args, {
+			description: 'Gets a random FML story.',
+			nsfw: true,
+		});
 	}
 
-	async run(msg) {
+	async run(message) {
 		const root = await fetch('http://www.fmylife.com/random')
 			.then(result => result.text())
 			.then(HTMLParser.parse);
@@ -18,13 +21,13 @@ module.exports = class extends Command {
 		const updoot = root.querySelector('.vote-up');
 
 		if (article.childNodes[0].text.length < 5) {
-			return msg.sendMessage('Today, something went wrong, so you will have to try again in a few moments. FML again.');
+			return message.sendMessage('Today, something went wrong, so you will have to try again in a few moments. FML again.');
 		}
 
-		return msg.sendEmbed(new MessageEmbed()
-			.setTitle(`Requested by ${msg.author.tag}`)
+		return message.sendEmbed(new MessageEmbed()
+			.setTitle(`Requested by ${message.author.tag}`)
 			.setAuthor('FML Stories')
-			.setColor(msg.member.displayColor)
+			.setColor(message.member.displayColor)
 			.setTimestamp()
 			.setDescription(`_${article.childNodes[0].text}\n\n_`)
 			.addField('I agree, your life sucks', updoot.childNodes[0].text, true)

@@ -9,8 +9,8 @@ module.exports = class extends Command {
 		});
 	}
 
-	run(msg, [mentioned = msg.member]) {
-		return msg.sendMessage(`${mentioned.user.tag}: ${compliments[Math.floor(Math.random() * compliments.length)]}`);
+	run(message, [mentioned = message.member]) {
+		return message.sendMessage(`${mentioned.user.tag}: ${compliments[Math.floor(Math.random() * compliments.length)]}`);
 	}
 
 };

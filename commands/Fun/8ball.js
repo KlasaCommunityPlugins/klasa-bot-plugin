@@ -10,8 +10,8 @@ module.exports = class extends Command {
 		});
 	}
 
-	run(msg, [question]) {
-		return msg.reply(question.endsWith('?') ?
+	run(message, [question]) {
+		return message.reply(question.endsWith('?') ?
 			`🎱 ${answers[Math.floor(Math.random() * answers.length)]}` :
 			"🎱 That doesn't look like a question, try again please.");
 	}

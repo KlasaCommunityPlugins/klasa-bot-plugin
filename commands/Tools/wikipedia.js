@@ -12,7 +12,7 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [query]) {
+	async run(message, [query]) {
 		const article = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`)
 			.then(response => response.json())
 			.catch(() => { throw "I couldn't find a wikipedia article with that title!"; });
@@ -24,7 +24,7 @@ module.exports = class extends Command {
 			.setTitle(article.title)
 			.setDescription(article.extract);
 
-		return msg.sendEmbed(embed);
+		return message.sendEmbed(embed);
 	}
 
 };

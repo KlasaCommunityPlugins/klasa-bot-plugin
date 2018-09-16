@@ -12,8 +12,8 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [channel = msg.channel, ...message]) {
-		if (channel.guild !== msg.guild) throw 'You can\'t echo in other servers!';
+	async run(message, [channel = message.channel, ...message]) {
+		if (channel.guild !== message.guild) throw 'You can\'t echo in other servers!';
 		if (!channel.postable) throw 'The selected channel is not postable.';
 		return channel.send(message.join(' '));
 	}

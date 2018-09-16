@@ -11,14 +11,14 @@ module.exports = class extends Command {
 		});
 	}
 
-	run(msg, [numCards]) {
+	run(message, [numCards]) {
 		const lines = [];
 
 		for (let i = 0; i < numCards; ++i) {
 			lines.push(`**${ranks[Math.floor(Math.random() * ranks.length)]}**${suits[Math.floor(Math.random() * suits.length)]}`);
 		}
 
-		return msg.sendMessage(lines.join(', '));
+		return message.sendMessage(lines.join(', '));
 	}
 
 };

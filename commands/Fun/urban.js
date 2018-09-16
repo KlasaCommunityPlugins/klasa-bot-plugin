@@ -17,7 +17,7 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [query, ind = 1]) {
+	async run(message, [query, ind = 1]) {
 		const index = ind - 1;
 		if (index < 0) {
 			throw 'The number cannot be zero or negative.';
@@ -33,10 +33,10 @@ module.exports = class extends Command {
 		}
 
 		const definition = this.content(result.definition, result.permalink);
-		return msg.sendEmbed(new MessageEmbed()
+		return message.sendEmbed(new MessageEmbed()
 			.setTitle(`Word: ${toTitleCase(query)}`)
 			.setURL(result.permalink)
-			.setColor(msg.color)
+			.setColor(message.color)
 			.setThumbnail('http://i.imgur.com/CcIZZsa.png')
 			.setDescription([
 				`→ \`Definition\` :: ${ind}/${list.length}\n${definition}`,

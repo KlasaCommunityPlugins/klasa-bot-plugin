@@ -7,6 +7,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
+			enabled: false,
 			cooldown: 5,
 			requiredPermissions: ['ATTACH_FILES'],
 			description: 'Applies a faceapp filter to an image.',
@@ -14,8 +15,8 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [filter]) {
-		const [attachment] = msg.attachments.values();
+	async run(message, [filter]) {
+		const [attachment] = message.attachments.values();
 		if (!attachment || !attachment.height) throw 'Please upload an image.';
 
 		const image = await fetch(attachment.url)
@@ -31,7 +32,7 @@ module.exports = class extends Command {
 				throw "Error - Couldn't find a face in the image.";
 			});
 
-		return msg.sendMessage(new MessageAttachment(faceappImage, `${Math.round(Math.random() * 10000)}.jpg`));
+		return message.sendMessage(new MessageAttachment(faceappImage, `${Math.round(Math.random() * 10000)}.jpg`));
 	}
 
 };

@@ -10,8 +10,8 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [banner]) {
-		return msg.sendCode('', await figletAsync(banner));
+	async run(message, [banner]) {
+		return message.sendCode('', await figletAsync(banner));
 	}
 
 };

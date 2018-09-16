@@ -150,7 +150,7 @@ module.exports = class extends Language {
 			COMMAND_CONF_SERVER: (key, list) => `**Configuration Serveur${key}**\n${list}`,
 			COMMAND_CONF_USER_DESCRIPTION: 'Établit une configuration par utilisateur.',
 			COMMAND_CONF_USER: (key, list) => `**Configuration Utilisateur${key}**\n${list}`,
-			COMMAND_STATS: (memUsage, uptime, users, servers, channels, klasaVersion, discordVersion, processVersion, msg) => [
+			COMMAND_STATS: (memUsage, uptime, users, servers, channels, klasaVersion, discordVersion, processVersion, message) => [
 				'= STATISTIQUES =',
 				'',
 				`• Utilisation Mem :: ${memUsage} Mo`,
@@ -161,7 +161,7 @@ module.exports = class extends Language {
 				`• Klasa           :: v${klasaVersion}`,
 				`• Discord.js      :: v${discordVersion}`,
 				`• Node.js         :: ${processVersion}`,
-				this.client.options.shardCount ? `• Shard           :: ${((msg.guild ? msg.guild.shardID : msg.channel.shardID) || this.client.options.shardId) + 1} / ${this.client.options.shardCount}` : ''
+				this.client.options.shardCount ? `• Shard           :: ${((message.guild ? message.guild.shardID : message.channel.shardID) || this.client.options.shardId) + 1} / ${this.client.options.shardCount}` : ''
 			],
 			COMMAND_STATS_DESCRIPTION: 'Fournit des détails et statistiques à propos du bot.'
 		};

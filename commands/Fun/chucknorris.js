@@ -10,11 +10,11 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
+	async run(message) {
 		const joke = await fetch('http://api.chucknorris.io/jokes/random')
 			.then(response => response.json())
 			.then(body => body.value);
-		return msg.sendMessage(`**😁 Chuck Norris Joke:** ${joke}`);
+		return message.sendMessage(`**😁 Chuck Norris Joke:** ${joke}`);
 	}
 
 };

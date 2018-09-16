@@ -13,16 +13,16 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [member, ...reason]) {
-		if (member.id === msg.author.id) throw 'Why would you kick yourself?';
+	async run(message, [member, ...reason]) {
+		if (member.id === message.author.id) throw 'Why would you kick yourself?';
 		if (member.id === this.client.user.id) throw 'Have I done something wrong?';
 
-		if (member.roles.highest.position >= msg.member.roles.highest.position) throw 'You cannot kick this user.';
+		if (member.roles.highest.position >= message.member.roles.highest.position) throw 'You cannot kick this user.';
 		if (!member.kickable) throw 'I cannot kick this user.';
 
 		reason = reason.length > 0 ? reason.join(' ') : null;
 		await member.kick(reason);
-		return msg.sendMessage(`${member.user.tag} got kicked.${reason ? ` With reason of: ${reason}` : ''}`);
+		return message.sendMessage(`${member.user.tag} got kicked.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

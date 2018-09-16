@@ -11,15 +11,15 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [coin, currency, amount = 1]) {
+	async run(message, [coin, currency, amount = 1]) {
 		const c1 = coin.toUpperCase();
 		const c2 = currency.toUpperCase();
 
 		const body = await fetch(`https://min-api.cryptocompare.com/data/price?fsym=${c1}&tsyms=${c2}`)
 			.then(response => response.json())
 			.catch(() => { throw 'There was an error, please make sure you specified an appropriate coin and currency.'; });
-		if (!body[c2]) return msg.sendMessage('There was an error, please make sure you specified an appropriate coin and currency.');
-		return msg.sendMessage(`Current price of ${amount} ${c1} is ${(body[c2] * amount).toLocaleString()} ${c2}`);
+		if (!body[c2]) return message.sendMessage('There was an error, please make sure you specified an appropriate coin and currency.');
+		return message.sendMessage(`Current price of ${amount} ${c1} is ${(body[c2] * amount).toLocaleString()} ${c2}`);
 	}
 
 };

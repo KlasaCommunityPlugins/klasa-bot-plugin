@@ -10,11 +10,11 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
+	async run(message) {
 		const file = await fetch('http://aws.random.cat/meow')
 			.then(response => response.json())
 			.then(body => body.file);
-		return msg.channel.sendFile(file, `cat.${file.slice(file.lastIndexOf('.'), file.length)}`);
+		return message.channel.sendFile(file, `cat.${file.slice(file.lastIndexOf('.'), file.length)}`);
 	}
 
 };

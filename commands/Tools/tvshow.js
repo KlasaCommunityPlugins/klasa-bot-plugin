@@ -8,6 +8,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
+			enabled: false,
 			aliases: ['tvshows', 'tv', 'tvseries'],
 			description: 'Finds a TV show on TMDB.org',
 			extendedHelp: 'e.g. `s.tvshow universe, 2`',
@@ -16,7 +17,7 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [query, page = 1]) {
+	async run(message, [query, page = 1]) {
 		const url = new URL('https://api.themoviedb.org/3/search/tv');
 		url.search = new URLSearchParams([['api_key', tmdbAPIkey], ['query', query]]);
 
@@ -39,7 +40,7 @@ module.exports = class extends Command {
 			.addField('Popularity', show.popularity, true)
 			.addField('First Air Date', show.first_air_date);
 
-		return msg.sendEmbed(embed);
+		return message.sendEmbed(embed);
 	}
 
 };

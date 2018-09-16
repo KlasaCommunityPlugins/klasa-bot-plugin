@@ -11,10 +11,10 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
-		let messageBank = await msg.channel.messages.fetch({ limit: 100 });
+	async run(message) {
+		let messageBank = await message.channel.messages.fetch({ limit: 100 });
 		for (let i = 1; i < messageLimitHundreds; i++) {
-			messageBank = messageBank.concat(await msg.channel.messages.fetch({ limit: 100, before: messageBank.last().id }));
+			messageBank = messageBank.concat(await message.channel.messages.fetch({ limit: 100, before: messageBank.last().id }));
 		}
 
 		const message = messageBank
@@ -23,7 +23,7 @@ module.exports = class extends Command {
 
 		if (!message) throw 'Could not find a quote';
 
-		return msg.sendEmbed(new MessageEmbed()
+		return message.sendEmbed(new MessageEmbed()
 			.setDescription(message.content)
 			.setAuthor(message.author.username, message.author.displayAvatarURL()));
 	}

@@ -9,8 +9,8 @@ module.exports = class extends Command {
 		});
 	}
 
-	run(msg, [user]) {
-		return msg.sendMessage(`🔔 SHAME 🔔 ${user} 🔔 SHAME 🔔`);
+	run(message, [user]) {
+		return message.sendMessage(`🔔 SHAME 🔔 ${user} 🔔 SHAME 🔔`);
 	}
 
 };

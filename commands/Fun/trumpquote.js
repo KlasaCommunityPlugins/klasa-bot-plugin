@@ -7,12 +7,12 @@ module.exports = class extends Command {
 		super(...args, { description: 'Returns a random Donald Trump quote.' });
 	}
 
-	async run(msg) {
+	async run(message) {
 		const quote = await fetch('https://api.tronalddump.io/random/quote')
 			.then(response => response.json())
 			.then(body => body.value)
 			.catch(() => { throw 'There was an error. Please try again.'; });
-		return msg.sendMessage(quote);
+		return message.sendMessage(quote);
 	}
 
 };

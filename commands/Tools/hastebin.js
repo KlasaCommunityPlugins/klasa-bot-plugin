@@ -11,11 +11,11 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [code]) {
+	async run(message, [code]) {
 		const key = await fetch('https://hastebin.com/documents', { method: 'POST', body: code })
 			.then(response => response.json())
 			.then(body => body.key);
-		return msg.sendMessage(`https://hastebin.com/${key}`);
+		return message.sendMessage(`https://hastebin.com/${key}`);
 	}
 
 };

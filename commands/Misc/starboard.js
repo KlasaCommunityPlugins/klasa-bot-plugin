@@ -9,33 +9,33 @@ module.exports = class extends Command {
 			runIn: ['text'],
 			requiredSettings: ['starboard'],
 			description: 'Stars a message.',
-			usage: '<messageid:msg>'
+			usage: '<messageid:message>'
 		});
 
 		this.provider = null;
 		this.timestamp = new Timestamp('DD/MM/YYYY [@] HH:mm:ss');
 	}
 
-	async run(msg, [message]) {
-		const channel = this.getChannel(msg.guild);
-		await this.sendStar(msg, message, channel);
+	async run(message, [message]) {
+		const channel = this.getChannel(message.guild);
+		await this.sendStar(message, message, channel);
 		await message.react('⭐').catch(() => null);
-		return msg.sendMessage('Successfully starred!');
+		return message.sendMessage('Successfully starred!');
 	}
 
-	async sendStar(msg, message, channel) {
+	async sendStar(message, message, channel) {
 		if (!await this.provider.has('starboard', message.guild.id)) await this.provider.create('starboard', message.guild.id, JSON.stringify([]));
 
-		const msgArray = await this.provider.get('starboard', message.guild.id);
-		if (msgArray.includes(message.id)) throw 'This message has already been starred.';
-		else if (msg.author === message.author) throw 'You cannot star yourself.';
+		const messageArray = await this.provider.get('starboard', message.guild.id);
+		if (messageArray.includes(message.id)) throw 'This message has already been starred.';
+		else if (message.author === message.author) throw 'You cannot star yourself.';
 
 		const options = {};
 		if (message.attachments.first()) options.files = message.attachments.map(a => ({ name: a.filename, attachment: a.url }));
 
 		await channel.send(this.generateMessage(message), options);
-		msgArray.push(message.id);
-		await this.provider.update('starboard', message.guild.id, { messages: JSON.stringify(msgArray) });
+		messageArray.push(message.id);
+		await this.provider.update('starboard', message.guild.id, { messages: JSON.stringify(messageArray) });
 	}
 
 	getChannel(guild) {

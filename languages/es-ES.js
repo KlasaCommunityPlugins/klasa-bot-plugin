@@ -143,7 +143,7 @@ module.exports = class extends Language {
 			COMMAND_CONF_SERVER: (key, list) => `**Configuración del servidor${key}**\n${list}`,
 			COMMAND_CONF_USER_DESCRIPTION: 'Define la configuración por usuario.',
 			COMMAND_CONF_USER: (key, list) => `**Configuración del usuario${key}**\n${list}`,
-			COMMAND_STATS: (memUsage, uptime, users, servers, channels, klasaVersion, discordVersion, processVersion, msg) => [
+			COMMAND_STATS: (memUsage, uptime, users, servers, channels, klasaVersion, discordVersion, processVersion, message) => [
 				'= STATISTICS =',
 				'',
 				`• Uso Memoria  :: ${memUsage} MB`,
@@ -154,7 +154,7 @@ module.exports = class extends Language {
 				`• Klasa        :: v${klasaVersion}`,
 				`• Discord.js   :: v${discordVersion}`,
 				`• Node.js      :: ${processVersion}`,
-				this.client.options.shardCount ? `• Shard        :: ${((msg.guild ? msg.guild.shardID : msg.channel.shardID) || this.client.options.shardId) + 1} / ${this.client.options.shardCount}` : ''
+				this.client.options.shardCount ? `• Shard        :: ${((message.guild ? message.guild.shardID : message.channel.shardID) || this.client.options.shardId) + 1} / ${this.client.options.shardCount}` : ''
 			],
 			COMMAND_STATS_DESCRIPTION: 'Provee algunos detalles sobre el bot y sus estadísticas.',
 			MESSAGE_PROMPT_TIMEOUT: 'El tiempo ha expirado.'

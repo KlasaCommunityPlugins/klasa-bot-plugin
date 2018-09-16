@@ -13,13 +13,13 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [user, ...reason]) {
-		if (user.id === msg.author.id) throw 'Why would you ban yourself?';
+	async run(message, [user, ...reason]) {
+		if (user.id === message.author.id) throw 'Why would you ban yourself?';
 		if (user.id === this.client.user.id) throw 'Have I done something wrong?';
 
-		const member = await msg.guild.members.fetch(user).catch(() => null);
+		const member = await message.guild.members.fetch(user).catch(() => null);
 		if (member) {
-			if (member.roles.highest.position >= msg.member.roles.highest.position) throw 'You cannot ban this user.';
+			if (member.roles.highest.position >= message.member.roles.highest.position) throw 'You cannot ban this user.';
 			if (!member.bannable) throw 'I cannot ban this user.';
 		}
 
@@ -27,8 +27,8 @@ module.exports = class extends Command {
 		reason = reason.length ? reason.join(' ') : null;
 		if (reason) options.reason = reason;
 
-		await msg.guild.members.ban(user, options);
-		return msg.sendMessage(`${member.user.tag} got banned.${reason ? ` With reason of: ${reason}` : ''}`);
+		await message.guild.members.ban(user, options);
+		return message.sendMessage(`${member.user.tag} got banned.${reason ? ` With reason of: ${reason}` : ''}`);
 	}
 
 };

@@ -11,15 +11,15 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg) {
-		let messageBank = await msg.channel.messages.fetch({ limit: 100 });
+	async run(message) {
+		let messageBank = await message.channel.messages.fetch({ limit: 100 });
 		for (let i = 1; i < messageLimitHundreds; i++) {
-			messageBank = messageBank.concat(await msg.channel.messages.fetch({ limit: 100, before: messageBank.last().id }));
+			messageBank = messageBank.concat(await message.channel.messages.fetch({ limit: 100, before: messageBank.last().id }));
 		}
 
 		const quotes = new MarkovChain(messageBank.map(message => message.content).join(' '));
 		const chain = quotes.start(this.useUpperCase).end(20).process();
-		return msg.sendMessage(chain.substring(0, 1999));
+		return message.sendMessage(chain.substring(0, 1999));
 	}
 
 	useUpperCase(wordList) {

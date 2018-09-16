@@ -18,14 +18,14 @@ function resolveMember(query, guild) {
 
 module.exports = class extends Argument {
 
-	async run(arg, possible, msg) {
-		if (!msg.guild) throw 'This command can only be used inside a guild.';
-		const resUser = await resolveMember(arg, msg.guild);
+	async run(arg, possible, message) {
+		if (!message.guild) throw 'This command can only be used inside a guild.';
+		const resUser = await resolveMember(arg, message.guild);
 		if (resUser) return resUser;
 
 		const results = [];
 		const reg = new RegExp(regExpEsc(arg), 'i');
-		for (const member of msg.guild.members.values()) {
+		for (const member of message.guild.members.values()) {
 			if (reg.test(member.user.username)) results.push(member);
 		}
 
