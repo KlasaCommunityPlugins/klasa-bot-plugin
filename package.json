@@ -1,0 +1,27 @@
+{
+  "name": "klasa-mod-plugin",
+  "version": "1.0.0",
+  "description": "A klasa plugin for any discord bot using the klasa framework to enable a ton of moderation features easily.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skillz4Killz/klasa-mod-plugin.git"
+  },
+  "keywords": [
+    "klasa",
+    "plugin"
+  ],
+  "author": "Zishan Skillz4Killz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Skillz4Killz/klasa-mod-plugin/issues"
+  },
+  "homepage": "https://github.com/Skillz4Killz/klasa-mod-plugin#readme",
+  "dependencies": {
+    "discord.js": "github:hydrabolt/discord.js",
+    "klasa": "github:dirigeants/klasa"
+  }
+}
