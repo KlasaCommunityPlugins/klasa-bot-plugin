@@ -68,7 +68,7 @@ These are all the commands that come built in with this plugin.
 = [x] diceroll - Gives you a random dice roll from 1-10.
 - [x] dogfacts -  Gives you a random dog fact.
 - [x] faceapp* - 
-- [x] horsefacts - Gives you a random horse fact.
+- [x] horsefacts - Gives you a random horse fact
 - [x] insult - 
 - [x] markov - Generate a markov chain from the text chat.
 - [x] randquote - Returns a random message from someone in the channel.
