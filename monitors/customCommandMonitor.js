@@ -13,13 +13,13 @@ module.exports = class extends Monitor {
 	async run(message) {
 		if (!message.guild) return null;
 
-		const { customCommands } = msg.guild.settings;
+		const { customCommands } = message.guild.settings;
 		if (!customCommands.length) return null;
 
 		const commandToUse = customCommands.find(command => command.name === message.content);
 		if (!commandToUse) return null;
 
-		this.client.console.log(`Sending Custom Command: "${msg.content}" was run on ${msg.guild.name} by ${msg.author.tag}`);
+		this.client.console.log(`Sending Custom Command: "${message.content}" was run on ${message.guild.name} by ${message.author.tag}`);
 
 		if (commandToUse.content[0] !== '{') return message.sendMessage(commandToUse.content)
 		else {
