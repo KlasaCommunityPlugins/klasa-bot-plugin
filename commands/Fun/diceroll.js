@@ -1,4 +1,5 @@
 const { Command } = require('klasa');
+const defaultMaxAmount = 6;
 
 module.exports = class extends Command {
 
@@ -6,12 +7,12 @@ module.exports = class extends Command {
 		super(...args, {
 			aliases: ['dr'],
 			description: 'Gives you a random dice roll from 1-10.',
+			usage: 'maxAmount:int{1}'
 		});
 	}
 
-	run(message) {
-        const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-        return message.reply(`number rolled is... ${numbers[Math.floor(Math.random() * numbers.length)]}`);
+	run(message, [maxAmount]) {
+        	return message.reply(`Number rolled is... ${Math.floor(Math.random() * maxAmount || defaultMaxAmount)}`);
 	}
 
 };
