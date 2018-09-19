@@ -35,21 +35,10 @@ module.exports = class extends Monitor {
 			if (commandObject.footer) embed.setFooter(commandObject.footer.text, commandObject.footer.iconURL || commandObject.footer.icon_url);
 			if (commandObject.thumbnail) embed.setThumbnail(commandObject.thumbnail);
 			if (commandObject.image) embed.setImage(commandObject.image);
-			if (commandObject.fields) {
-				for (const field of commandObject.fields) {
-					embed.addField(field.name, field.value, field.inline ? true : false);
-				}
-			}
+			if (commandObject.fields) for (const field of commandObject.fields) embed.addField(field.name, field.value, field.inline ? true : false);
 
 			return message.sendEmbed(embed, commandObject.plaintext);
 		}
   }
-
-	async init() {
-		/*
-				 * You can optionally define this method which will be run when the bot starts
-				 * (after login, so discord data is available via this.client)
-				 */
-	}
 
 };
