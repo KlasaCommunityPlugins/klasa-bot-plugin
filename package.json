@@ -1,6 +1,6 @@
 {
   "name": "klasa-bot-plugin",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A klasa plugin for any discord bot using the klasa framework to enable a ton of features easily.",
   "main": "index.js",
   "scripts": {
