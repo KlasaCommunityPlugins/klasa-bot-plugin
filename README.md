@@ -33,6 +33,7 @@ new Client({
 # Included Features
 
 - [x] Custom Commands that servers admins can create, list and remove on their servers.
+- [x] Auto Assign Role to members that join the server.
 
 ## Arguments
 
@@ -54,6 +55,7 @@ These are all the commands that come built in with this plugin.
 #### Settings
 
 - [x] Prefix - Change or reset a servers prefix
+- [x] Autoassignrole - Sets or remove a role to be automatically assigned when a member joins the server.
 
 ### Fun
 
@@ -134,6 +136,13 @@ These are all the commands that come built in with this plugin.
 
 ## Extendables
 
+### Message Extended
+- [x] ask - You can ask the user a question and get a response with message.ask();
+- [x] awaitReply -  Await a reply from a user with message.awaitReply();
+
+### Text/DM Channels
+
+- [x] fetchImage - Fetches the last image sent in the last 20 messages with channel.fetchImage();
 
 ## Finalizers
 
