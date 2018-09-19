@@ -1,5 +1,5 @@
 const { Command } = require('klasa');
-
+const util = require('./../../../lib/util');
 module.exports = class extends Command {
 
 	constructor(...args) {
@@ -29,7 +29,7 @@ module.exports = class extends Command {
 
 		// If the string provided is JSON check if the json is valid
 		if (fullContent[0] === '{') {
-			const isValidJSON = await this.checkJson(fullContent)
+			const isValidJSON = await util.checkJson(fullContent)
 			// If there was an error and it is not valid send the returned error
 			if (typeof isValidJSON !== 'boolean') return message.sendMessage(isValidJSON);
 		}

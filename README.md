@@ -32,6 +32,8 @@ new Client({
 
 # Included Features
 
+- [x] Custom Commands that servers admins can create, list and remove on their servers.
+
 ## Arguments
 
 Certain types of arguments are strict on how they require input. For example, to get a member you need to ask for a @member or member id. The arguments that are installed by this plugin will enable you to make your users so much happier.

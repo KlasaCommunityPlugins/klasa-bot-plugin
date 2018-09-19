@@ -8,10 +8,10 @@ module.exports = class extends Command {
 			aliases: ['rc'],
 			permissionLevel: 6,
 			description: 'Removes a custom commands for your server by its name.',
-			usage: '<name:str>',
+			usage: '(name:str)',
 		});
 
-		this.createCustomResolver('name', (arg, possible, message, params) => {
+		this.createCustomResolver('str', (arg, possible, message, params) => {
 			if (!arg) return nessage,sendMessage('You did not provide a name of a custom command to remove.');
 			const { customCommands } = message.guild.settings;
 			if (customCommands.find(command => command.name === arg)) throw 'Could not find any custom command with that name.'
