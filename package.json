@@ -21,13 +21,10 @@
   },
   "homepage": "https://github.com/Skillz4Killz/klasa-bot-plugin#readme",
   "dependencies": {
-    "canvas": "^1.6.12",
-    "d3-cloud": "^1.2.5",
     "faceapp": "^0.4.4",
     "fast-html-parser": "^1.0.1",
     "figlet": "^1.2.0",
     "heapdump": "^0.3.9",
-    "jimp": "^0.5.0",
     "markovchain": "^1.0.2"
   }
 }
