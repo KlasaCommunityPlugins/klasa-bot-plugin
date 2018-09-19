@@ -2,6 +2,9 @@ const { Client: { plugin } } = require('klasa');
 
 const mainDirectory = `${__dirname}/`;
 
+// Add the guild schemas
+require(`${__dirname}/lib/schemas/guilds`);
+
 module.exports = {
 
 	[plugin]() {
