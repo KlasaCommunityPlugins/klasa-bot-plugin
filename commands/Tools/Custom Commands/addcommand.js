@@ -19,7 +19,7 @@ module.exports = class extends Command {
 		this.customizeResponse('content', 'You did not provide any content for the command.')
 	}
 
-  async run(message, [name, type, ...content]) {
+  async run(message, [name, ...content]) {
 		// Check if the command already exists
 		const { customCommands } = message.guild.settings;
 		const commandExists = customCommands.find(command => command.name === name);
@@ -36,7 +36,7 @@ module.exports = class extends Command {
 
     const commandToStore = { name, content: fullContent };
 
-		const { errors } = await message.guild.configs.update('customCommands', commandToStore);
+		const { errors } = await message.guild.settings.update('customCommands', commandToStore);
 		if (errors.length) {
 			this.client.emit('error', errors.join('\n'));
 			return message.sendMessage(`The command was unable to be saved because ${errors.join('\n')}`);

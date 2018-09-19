@@ -25,7 +25,7 @@ module.exports = class extends Command {
 		// If no command names are provided create a string of all command names
     const commandNames = message.guild.settings.customCommands.map(command => command.name).join('\n');
 
-		return message.sendMessage(`Your current custom commands are: \n\n${commandNames});
+		return message.sendMessage(`Your current custom commands are: \n\n${commandNames}`);
 	}
 
 };

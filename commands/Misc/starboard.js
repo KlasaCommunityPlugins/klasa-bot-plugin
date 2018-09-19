@@ -9,32 +9,32 @@ module.exports = class extends Command {
 			runIn: ['text'],
 			requiredSettings: ['starboard'],
 			description: 'Stars a message.',
-			usage: '<messageid:message>'
+			usage: '<messageid:msg>'
 		});
 
 		this.provider = null;
 		this.timestamp = new Timestamp('DD/MM/YYYY [@] HH:mm:ss');
 	}
 
-	async run(message, [message]) {
+	async run(message, [selectedMessage]) {
 		const channel = this.getChannel(message.guild);
-		await this.sendStar(message, message, channel);
+		await this.sendStar(message, selectedMessage, channel);
 		await message.react('⭐').catch(() => null);
 		return message.sendMessage('Successfully starred!');
 	}
 
-	async sendStar(message, message, channel) {
+	async sendStar(message, selectedMessage, channel) {
 		if (!await this.provider.has('starboard', message.guild.id)) await this.provider.create('starboard', message.guild.id, JSON.stringify([]));
 
 		const messageArray = await this.provider.get('starboard', message.guild.id);
-		if (messageArray.includes(message.id)) throw 'This message has already been starred.';
-		else if (message.author === message.author) throw 'You cannot star yourself.';
+		if (messageArray.includes(selectedMessage.id)) throw 'This message has already been starred.';
+		else if (message.author === selectedMessage.author) throw 'You cannot star yourself.';
 
 		const options = {};
-		if (message.attachments.first()) options.files = message.attachments.map(a => ({ name: a.filename, attachment: a.url }));
+		if (selectedMessage.attachments.first()) options.files = selectedMessage.attachments.map(a => ({ name: a.filename, attachment: a.url }));
 
-		await channel.send(this.generateMessage(message), options);
-		messageArray.push(message.id);
+		await channel.send(this.generateMessage(selectedMessage), options);
+		messageArray.push(selectedMessage.id);
 		await this.provider.update('starboard', message.guild.id, { messages: JSON.stringify(messageArray) });
 	}
 
