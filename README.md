@@ -57,57 +57,63 @@ These are all the commands that come built in with this plugin.
 
 ### Fun
 
-- [x] 8ball -
-- [x] banner -
-- [x] card -
-- [x] catfacts -
-- [x] choice -
-- [x] chucknorris -
-- [x] coinflip -
-- [x] compliment -
-- [x] dogfacts -
-- [x] faceapp* -
-- [x] insult -
-- [x] markov -
-- [x] randquote -
-- [x] shame -
-- [x] trumpquote -
-- [x] urban -
+- [x] 8ball - Magic 8-Ball, does exactly what the toy does.
+- [x] banner - Creates an ASCII banner from the string you supply.
+- [x] card - Draws some random cards from a deck.
+- [x] catfacts -  Let me tell you a misterious cat fact.
+- [x] choice - Makes a decision for you given some choices.
+- [x] chucknorris -  Chuck Norris has some good jokes.
+- [x] coinflip - Flips one or more coins
+- [x] compliment - Compliments a user.
+- [x] dogfacts -  Gives you a random dog fact.
+- [x] faceapp* - 
+- [x] insult - 
+- [x] markov - Generate a markov chain from the text chat.
+- [x] randquote - Returns a random message from someone in the channel.
+- [x] shame - Rings a bell on the server shaming the mentioned person.
+- [x] trumpquote - Returns a random Donald Trump quote.
+- [x] urban - 
 - [x] wordcloud -
-- [x] yomomma -
+- [x] yomomma - Yo momma is so fat, yo.
 
 ### General
 
+- [x] info - Provides some information about this bot.
+- [x] invite - Displays the join guild link of the bot.
+- [x] ping - Runs a connection test to Discord.
+- [x] stats -  Provides some details about the bot and stats.
+- [x] userconf - Define per-user settings.
+
 #### Chat Bot Info
 
-- [x] Help -
+- [x] Help - Display help for a command.
 
 ### Misc
 
-- [x] cat -
-- [x] dog -
-- [x] echo -
+- [x] cat - Grabs a random cat image from random.cat.
+- [x] dog - Grabs a random dog image from random.dog.
+- [x] echo - Send a message to a channel through the bot.
 - [x] fml -
 - [x] starboard -
 
 ### Moderation
 
-- [x] ban -
-- [x] check -
-- [x] kick -
-- [x] mute -
-- [x] prune -
-- [x] unban -
-- [x] unmute -
+- [x] ban - Bans a mentioned user. Currently does not require reason (no mod-log).
+- [x] check - 
+- [x] kick - Kicks a mentioned user. Currently does not require reason (no mod-log).
+- [x] mute - Mutes a mentioned member.
+- [x] prune - Prunes a certain amount of messages w/o filter.
+- [x] unban - Unbans a user.
+- [x] unmute - Unmutes a mentioned user.
 
 ### System
 
-- [x] exec
+- [x] exec - Execute commands in the terminal, use with EXTREME CAUTION.
 
 #### Admin
 
-- [x] eval
-- [x] heapsnapshot
+- [x] eval - Evaluates arbitrary Javascript. Reserved for bot owner.
+- [x] heapsnapshot - Creates a heapdump for finding memory leaks.
 
 ### Tools
 
