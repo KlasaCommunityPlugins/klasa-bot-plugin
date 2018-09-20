@@ -7,7 +7,7 @@ module.exports = class extends Command {
 		super(...args, {
 			aliases: ['dr'],
 			description: 'Gives you a random dice roll from 1-10.',
-			usage: 'maxAmount:int{1}'
+			usage: '[maxAmount:int{1}]'
 		});
 	}
 
