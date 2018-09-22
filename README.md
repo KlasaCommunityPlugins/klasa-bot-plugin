@@ -97,6 +97,7 @@ These are all the commands that come built in with this plugin.
 - [x] echo - Send a message to a channel through the bot.
 - [x] fml -
 - [x] starboard -
+- [x] hug - Hugs the mentioned user and sends an image in chat.
 
 ### Moderation
 
