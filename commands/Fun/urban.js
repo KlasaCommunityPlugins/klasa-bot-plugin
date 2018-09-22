@@ -11,19 +11,17 @@ module.exports = class extends Command {
 			aliases: ['ud', 'urbandictionary'],
 			requiredPermissions: ['EMBED_LINKS'],
 			description: 'Searches the Urban Dictionary library for a definition to the search term.',
-			usage: '<query:string> [page:integer{0,10}]',
-			usageDelim: ', ',
+			usage: '<query:string> [page:integer{1,10}]',
+			usageDelim: ' ',
 			nsfw: true
 		});
 	}
 
 	async run(message, [query, ind = 1]) {
 		const index = ind - 1;
-		if (index < 0) {
-			throw 'The number cannot be zero or negative.';
-		}
+		if (index < 0) throw 'The number cannot be zero or negative.';
 
-		const { list } = await fetch(`http://api.urbandictionary.com/v0/define?term=${encodeURIComponent(query)}`, 'json');
+		const { list } = await fetch(`http://api.urbandictionary.com/v0/define?term=${encodeURIComponent(query)}`).then(r => r.json());
 
 		const result = list[index];
 		if (typeof result === 'undefined') {
@@ -36,7 +34,7 @@ module.exports = class extends Command {
 		return message.sendEmbed(new MessageEmbed()
 			.setTitle(`Word: ${toTitleCase(query)}`)
 			.setURL(result.permalink)
-			.setColor(message.color)
+			.setColor(message.member.displayColor)
 			.setThumbnail('http://i.imgur.com/CcIZZsa.png')
 			.setDescription([
 				`→ \`Definition\` :: ${ind}/${list.length}\n${definition}`,

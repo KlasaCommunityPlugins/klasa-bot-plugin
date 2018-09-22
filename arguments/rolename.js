@@ -25,9 +25,8 @@ module.exports = class extends Argument {
 			const regWord = new RegExp(`\\b${regExpEsc(arg)}\\b`, 'i');
 			const filtered = results.filter(role => regWord.test(role.name));
 			querySearch = filtered.length > 0 ? filtered : results;
-		} else {
-			querySearch = results;
-		}
+		} else querySearch = results;
+
 
 		switch (querySearch.length) {
 			case 0: throw `${possible.name} Must be a valid name, id or role mention`;
