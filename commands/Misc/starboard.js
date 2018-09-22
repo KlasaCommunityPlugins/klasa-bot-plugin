@@ -39,7 +39,7 @@ module.exports = class extends Command {
 	}
 
 	getChannel(guild) {
-		const channel = guild.channels.find('name', 'starboard');
+		const channel = guild.channels.find(channel => channel.name === "starboard");
 		if (!channel) throw 'Please create the _starboard_ channel and try again.';
 		if (channel.postable === false) throw `I require the permission SEND_MESSAGES to post messages in ${channel} channel.`;
 		return channel;
