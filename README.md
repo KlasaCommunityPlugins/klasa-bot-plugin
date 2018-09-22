@@ -57,6 +57,7 @@ These are all the commands that come built in with this plugin.
 
 ### Fun
 
+- [x] rps - Play a game of rock, paper, scissors with the bot.
 - [x] 8ball - Magic 8-Ball, does exactly what the toy does.
 - [x] banner - Creates an ASCII banner from the string you supply.
 - [x] card - Draws some random cards from a deck.
