@@ -59,6 +59,7 @@ These are all the commands that come built in with this plugin.
 
 ### Fun
 
+- [x] rps - Play a game of rock, paper, scissors with the bot.
 - [x] 8ball - Magic 8-Ball, does exactly what the toy does.
 - [x] banner - Creates an ASCII banner from the string you supply.
 - [x] card - Draws some random cards from a deck.
@@ -99,6 +100,7 @@ These are all the commands that come built in with this plugin.
 - [x] echo - Send a message to a channel through the bot.
 - [x] fml -
 - [x] starboard -
+- [x] hug - Hugs the mentioned user and sends an image in chat.
 
 ### Moderation
 
@@ -109,6 +111,7 @@ These are all the commands that come built in with this plugin.
 - [x] prune - Prunes a certain amount of messages w/o filter.
 - [x] unban - Unbans a user.
 - [x] unmute - Unmutes a mentioned user.
+- [x] lockdown - Locks down the specified channel, stopping people from sending messages in it.
 
 ### System
 
