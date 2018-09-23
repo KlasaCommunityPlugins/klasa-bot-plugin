@@ -111,6 +111,7 @@ These are all the commands that come built in with this plugin.
 - [x] prune - Prunes a certain amount of messages w/o filter.
 - [x] unban - Unbans a user.
 - [x] unmute - Unmutes a mentioned user.
+- [x] lockdown - Locks down the specified channel, stopping people from sending messages in it.
 
 ### System
 
