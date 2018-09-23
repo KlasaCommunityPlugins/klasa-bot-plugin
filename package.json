@@ -1,6 +1,6 @@
 {
   "name": "klasa-bot-plugin",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A klasa plugin for any discord bot using the klasa framework to enable a ton of features easily.",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,6 @@
     "faceapp": "^0.4.4",
     "fast-html-parser": "^1.0.1",
     "figlet": "^1.2.0",
-    "heapdump": "^0.3.9",
     "markovchain": "^1.0.2"
   }
 }
