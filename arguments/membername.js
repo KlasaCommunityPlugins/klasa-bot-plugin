@@ -4,14 +4,11 @@ const { GuildMember, User } = require('discord.js');
 const USER_REGEXP = Argument.regex.userOrMember;
 
 function resolveMember(query, guild) {
-	if (query instanceof GuildMember) return query.user;
+	if (query instanceof GuildMember) return query;
 	if (query instanceof User) return guild.members.fetch(query);
 	if (typeof query === 'string') {
-		if (USER_REGEXP.test(query)) return guild.client.users.fetch(USER_REGEXP.exec(query)[1]).catch(() => null);
-		if (/\w{1,32}#\d{4}/.test(query)) {
-			const res = guild.members.find(member => member.user.tag.toLowerCase() === query.toLowerCase());
-			return res || null;
-		}
+		if (USER_REGEXP.test(query)) return guild.members.fetch(USER_REGEXP.exec(query)[1]).catch(() => null);
+		if (/\w{1,32}#\d{4}/.test(query)) return guild.members.find(member => member.user.tag.toLowerCase() === query.toLowerCase()) || null;
 	}
 	return null;
 }
@@ -21,6 +18,7 @@ module.exports = class extends Argument {
 	async run(arg, possible, message) {
 		if (!message.guild) throw 'This command can only be used inside a guild.';
 		const resUser = await resolveMember(arg, message.guild);
+		console.log(resUser);
 		if (resUser) return resUser;
 
 		const results = [];
@@ -29,13 +27,12 @@ module.exports = class extends Argument {
 			if (reg.test(member.user.username)) results.push(member);
 		}
 
-		let querySearch;
+		let querySearch = results;
+
 		if (results.length > 0) {
 			const regWord = new RegExp(`\\b${regExpEsc(arg)}\\b`, 'i');
 			const filtered = results.filter(member => regWord.test(member.user.username));
 			querySearch = filtered.length > 0 ? filtered : results;
-		} else {
-			querySearch = results;
 		}
 
 		switch (querySearch.length) {
