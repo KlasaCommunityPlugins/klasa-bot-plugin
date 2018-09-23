@@ -15,13 +15,15 @@ module.exports = class extends Command {
     }
 
     async run(message, [user]) {
-        await fetch('https://nekos.life/api/v2/img/cuddle').then(res => res.json()).then(body => {
-            const embed = new MessageEmbed()
-            .setTimestamp()
-            .setImage(body.url)
-            .setColor('RANDOM');
-            return message.sendMessage(`***${user} was hugged by ${message.author}!***`, { embed: embed });
-        });
-    }
+        if (user.id === message.author.id) {
+            return message.sendMessage(`**You can't hug yourself, silly!**`);
+        }
+        const { url } = await fetch('https://nekos.life/api/v2/img/cuddle').then(res => res.json());
 
+        const embed = new MessageEmbed()
+            .setTimestamp()
+            .setImage(url)
+            .setColor(message.member.roles.highest.color);
+        return message.sendMessage(`***${user} was hugged by ${message.author}!***`, { embed: embed });
+    }
 };
