@@ -6,11 +6,8 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            cooldown: 5,
-            aliases: [],
             usage: '<user:username>',
-            description: 'Hugs the mentioned user and sends an image in chat.',
-            extendedHelp: ''
+            description: 'Hugs the mentioned user and sends an image in chat.'
         });
     }
 
