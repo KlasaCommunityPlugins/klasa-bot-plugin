@@ -5,7 +5,6 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			runIn: ['text'],
-			permissionLevel: 0,
 			description: 'Make the bot leave a voice channel.',
 		});
 	}

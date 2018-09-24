@@ -1,11 +1,11 @@
 const { Command } = require('klasa');
+const ytdl = require('ytdl-core');
 
 module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
 			runIn: ['text'],
-			permissionLevel: 0,
 			description: 'Make the bot join a voice channel.',
 			usage: '[channel:voicechannel]',
 		});
@@ -20,8 +20,15 @@ module.exports = class extends Command {
 
 		if (!joinedChannel) throw `Unable to join the voice channel at this time. Please try again later.`;
 
-		return message.sendMessage(`Successfully joined ${channel.name}`);
+		const { playlist } = message.guild.settings;
+		if (!playlist.length) return message.sendMessage(`Successfully joined ${channel.name}`);
 
+		const firstSongInPlaylist = playlist[0];
+		const playingNow = await joinedVoiceChannel.play(ytdl(firstSongInPlaylist, { filter: 'audioonly' }));
+
+		if (!playingNow) return message.sendMessage(`Unable to play the song <${firstSongInPlaylist}>.`);
+
+		return message.sendMessage(`Joined ${channel.name} and playing...`);
 	}
 
 };
