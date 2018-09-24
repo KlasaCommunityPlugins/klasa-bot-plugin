@@ -1,14 +1,14 @@
 const { Command } = require('klasa');
-const everyone = channel.guild.defaultRole;
 
 module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
+            requiredPermissions: ['MANAGE_CHANNELS'],
             permissionLevel: 6,
             runIn: ['text'],
-            description: 'Locks down the specified channel, stopping people from sending messages in it',
-            usage: '<channel:channel> [reason:string] [...]',
+            description: 'Stop/allow everyone from sending messages in a channel',
+            usage: '<channel:channel> <reason:string> [...]',
             extendedHelp: 'Example: lockdown #channel <reason>',
             usageDelim: ' '
         });
@@ -16,21 +16,14 @@ module.exports = class extends Command {
 
     async run(message, [channel, ...reason]) {
         reason = reason.join(' ');
- 
-        if (channel.permissionsFor(everyone).has('SEND_MESSAGES')) {
-            channel.updateOverwrite(everyone, {
-                SEND_MESSAGES: false
-            },
-            `${reason ? reason : 'No reason specified.'}`);
+        const everyoneRole = channel.guild.defaultRole;
 
-            return message.channel.send(`Successfully locked down the channel ${channel}${reason ? ', with reason: ' + reason : '.'}`);
-        } else {
-            channel.updateOverwrite(everyone, {
-                SEND_MESSAGES: null
-            },
-            `${reason ? reason : 'No reason specified.'}`);
+        const needToDisablePerms = channel.permissionsFor(everyoneRole).has('SEND_MESSAGES');
 
-            return message.channel.send(`Successfully released the lockdown from the channel ${channel}${reason ? ', with reason: ' + reason : '.'}`);
-        }
+        channel.updateOverwrite(everyoneRole, {
+            SEND_MESSAGES: needToDisablePerms ? false : null
+        }, reason || 'No reason specified.');
+
+        return message.sendMessage(`Successfully ${needToDisablePerms ? 'locked down' : 'released'} the channel ${channel}${reason ? ', with reason: ' + reason : '.'}`);
     }
 };
