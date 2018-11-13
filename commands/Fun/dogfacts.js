@@ -32,7 +32,7 @@ module.exports = class extends Command {
 	}
 
 	run(message) {
-		return message.sendMessage(facts[Math.floor(Math.random() * dogfacts.length)]);
+		return message.sendMessage(dogfacts[Math.floor(Math.random() * dogfacts.length)]);
 	}
 
 };
