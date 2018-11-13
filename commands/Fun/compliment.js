@@ -24,7 +24,7 @@ SOFTWARE.
 */
 
 const { Command } = require('klasa');
-const { array: { compliments } } = require('../../array.js');
+const { compliments } = require('../../constants.js');
 
 module.exports = class extends Command {
 
