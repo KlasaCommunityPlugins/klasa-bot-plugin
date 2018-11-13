@@ -1,5 +1,5 @@
 const { Command } = require('klasa');
-const { array: { horsefacts } } = require('../../array.js')
+const { horsefacts } = require('../../constants.js')
 module.exports = class extends Command {
 
 	constructor(...args) {
