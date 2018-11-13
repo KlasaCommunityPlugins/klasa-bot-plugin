@@ -10,7 +10,7 @@ module.exports = class extends Command {
 	}
 
 	run(message) {
-        return message.sendMessage(facts[Math.floor(Math.random() * monkeyfacts.length)]);
+        return message.sendMessage(monkeyfacts[Math.floor(Math.random() * monkeyfacts.length)]);
 	}
 
 };
