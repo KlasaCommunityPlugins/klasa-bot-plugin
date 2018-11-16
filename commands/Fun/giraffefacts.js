@@ -28,7 +28,7 @@ const { giraffefacts } = require('../../array.js')
 module.exports = class extends Command {
 
 	constructor(...args) {
-		super(...args, { description: 'Gives you a random dog fact.' });
+		super(...args, { description: 'Gives you a random giraffe fact.' });
 	}
 
 	run(message) {
