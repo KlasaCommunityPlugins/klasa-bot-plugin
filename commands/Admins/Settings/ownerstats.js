@@ -7,7 +7,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			guarded: true,
-			description:'Here, the bot owner can look over his stats, and other things he needs.',
+			description: 'See the bots private stats that users don't need.',
 			permissionLevel: 10,
 			aliases: ['os']
 		});
