@@ -32,7 +32,7 @@ module.exports = class extends Command {
 	}
 
 	run(message) {
-		return message.sendMessage(facts[Math.floor(Math.random() * snakefacts.length)]);
+		return message.sendMessage(snakefacts[Math.floor(Math.random() * snakefacts.length)]);
 	}
 
 };
