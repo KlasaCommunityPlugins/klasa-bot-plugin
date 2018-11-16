@@ -24,7 +24,7 @@ SOFTWARE.
 */
 
 const { Command } = require('klasa');
-const { giraffefacts } = require('../../array.js')
+const { giraffefacts } = require('../../constants.js')
 module.exports = class extends Command {
 
 	constructor(...args) {
