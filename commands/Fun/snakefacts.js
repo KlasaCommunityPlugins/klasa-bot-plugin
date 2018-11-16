@@ -24,7 +24,7 @@ SOFTWARE.
 */
 
 const { Command } = require('klasa');
-const { snakefacts } = require('../../array.js')
+const { snakefacts } = require('../../constants.js')
 module.exports = class extends Command {
 
 	constructor(...args) {
