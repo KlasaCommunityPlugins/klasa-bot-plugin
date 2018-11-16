@@ -12,7 +12,7 @@ module.exports = class extends Command {
 	}
 
 	async run(message) {
-		message.send(new MessageEmbed()
+		return message.send(new MessageEmbed()
 		.setAuthor(this.client.user.username, this.client.user.displayAvatarURL())
 		.setColor(7415665)
 		.addField(`Memory Usage:`,  (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2),true)
