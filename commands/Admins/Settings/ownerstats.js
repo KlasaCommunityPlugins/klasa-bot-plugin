@@ -20,7 +20,7 @@ module.exports = class extends Command {
 		.addField(`Server count:`, `${this.client.guilds.size}`,true)
 		.addField(`Player/User count:`,` ${this.client.users.size}`,true)
 		.addField(`Owner:`, (this.client.owner),true)
-		.addField(`Default Prefix:`,(prefix),true)
+		.addField(`Default Prefix:`,(this.client.options.prefix),true)
 		.addField(`Klasa Version:`,klasaVersion,true)
 		.addField(`Discord.js Version:`, discordVersion,true)
 		.addField(`Node.js Version`, process.version,true))
