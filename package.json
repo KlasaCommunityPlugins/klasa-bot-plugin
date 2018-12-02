@@ -22,8 +22,5 @@
   "homepage": "https://github.com/Skillz4Killz/klasa-bot-plugin#readme",
   "dependencies": {
     "fast-html-parser": "^1.0.1",
-    "figlet": "^1.2.1",
-    "markovchain": "^1.0.2",
-    "publish": "^0.6.0"
   }
 }

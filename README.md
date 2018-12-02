@@ -61,7 +61,6 @@ These are all the commands that come built in with this plugin.
 
 - [x] rps - Play a game of rock, paper, scissors with the bot.
 - [x] 8ball - Magic 8-Ball, does exactly what the toy does.
-- [x] banner - Creates an ASCII banner from the string you supply.
 - [x] card - Draws some random cards from a deck.
 - [x] catfacts -  Let me tell you a misterious cat fact.
 - [x] choice - Makes a decision for you given some choices.
@@ -72,7 +71,6 @@ These are all the commands that come built in with this plugin.
 - [x] dogfacts -  Gives you a random dog fact.
 - [x] horsefacts - Gives you a random horse fact
 - [x] insult -
-- [x] markov - Generate a markov chain from the text chat.
 - [x] randquote - Returns a random message from someone in the channel.
 - [x] shame - Rings a bell on the server shaming the mentioned person.
 - [x] trumpquote - Returns a random Donald Trump quote.
