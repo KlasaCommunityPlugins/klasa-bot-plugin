@@ -243,5 +243,43 @@ module.exports = {
             'Dogs can get jealous when their humans display affection toward someone or something else.',
             'Weird dog laws include allowing police offers in Palding, Ohio, to bite a dog to quiet it. In Ventura County, California, cats and dogs are not allowed to have sex without a permit.',
             'The largest dog was an English Mastiff who weighed 343 pounds.'
+        ],
+        giraffefacts:[
+            "A study published in 2016 suggests that the giraffe is not a species, but a subfamily containing four highly distinct species.",
+            "Giraffes used to be distributed throughout North and West Africa, including the Sahara, and along the Nile. Today giraffes are only found in sub-Sarahan Africa.",
+            "The giraffe originated from Eurasia, probably temperate Eurasia. This genus evolved seven to eight million years ago.",
+            "The giraffe genus (Giraffa) is part the Giraffidae family. The only other extant relative within this family is the okapi (the only species in the Okapia genus).",
+            "The giraffe is the tallest mammal in the world, standing at around 4-5m high, and the tallest giraffes can be recorded up to 5.9m. That’s over a meter higher than a double-decker bus.",
+            "Despite being incredibly tall, giraffes still only have seven vertebrae in their neck – the same number as humans and most other mammals.",
+            "A giraffe’s neck is too short to reach the ground. As a result, it has to awkwardly spread or bend its front legs to reach the ground for a drink of water.",
+            "Giraffes only need to drink once every few days. Most of their water comes from all the plants they eat.",
+            "Unlike most other four-legged mammals, giraffes swing both legs on the same side at almost the same time during their walk, known as ‘pacing’. This movement is lost, however, when the giraffe breaks into a gallop.",
+            "Giraffe feet are the size of a dinner plate with a diameter of 30cm.",
+            "Both male and female giraffes have ‘horns’ at birth. These ossicones lie flat and are not attached to the skull to avoid injury at birth. They only fuse with the skull later in life.",
+            "Female giraffes give birth standing up. Their young fall about 2m to the ground and can stand up within an hour of birth.",
+            "The gestation period for a giraffe is 457 days, which is about 15 months. Generally, only a single baby is born.",
+            "About 50 per cent of all giraffe calves do not survive their first year.",
+            "Just like human fingerprints, no two giraffes have the same coat pattern.It is thought that the coat pattern on a giraffe doesn’t just serve to camouflage the animal, but also helps with temperature regulation too. The coloured skin patches can act to dissipate heat around the body, as the temperature of the skin is slightly higher in darker regions, facilitating the dilation of vessels beneath the skin’s surface.",
+            "Giraffes have an efficient nasal cooling system to regulate brain temperature up to 3°C lower than the rest of the body.",
+            "To protect the giraffe’s brain from sudden changes in blood pressure when it lowers its head to drink, it has valves to stop the back-flow of blood and elastic-walled vessels that dilate and constrict to manage flow. NASA has done research on the blood vessels in giraffe legs to get inspiration for human space suits.",
+            "Giraffe tongues are bluish-purple and between 45-50cm long.",
+            "A giraffe heart can weigh approximately 11kg and this is the biggest of any land mammal. It can pump 60 litres of blood around its body every minute at a blood pressure twice that of an average human.",
+            "When fighting, male giraffes will push and shove against each other. This occasionally escalates into powerful blows delivered by their muscular necks. The loser can be knocked off, and sometimes even killed."
+        ],
+        snakefacts:[
+            "The decapitated head of a dead snake can still bite, even hours after death. These types of bites usually contain huge amounts of venom.",
+            "What is considered the most “dangerous” snake depends on both a specific country’s health care and the availability of antivenom following a bite. Based on these criteria, the most dangerous snake in the world is the saw-scaled viper, which bites and kills more people each year than any other snake.",
+            "Snakes live on everywhere on Earth except Ireland, Iceland, New Zealand, and the North and South Poles.",
+            "Of the approximately 725 species of venomous snakes worldwide, 250 can kill a human with one bite.",
+            "Snakes evolved from a four-legged reptilian ancestor—most likely a small, burrowing, land-bound lizard—about 100 million years ago. Some snakes, such as pythons and boas, still have traces of back legs.",
+            "The fear of snakes (ophiophobia or herpetophobia) is one of the most common phobias worldwide. Approximately 1/3 of all adult humans are ophidiophobic, which suggests that humans have an innate, evolutionary fear of snakes.",
+            "The warmer a snake’s body, the more quickly it can digest its prey. Typically, it takes 3–5 days for a snake to digest its meal. For very large snakes, such as the anaconda, digestion can take weeks.",
+            "Some animals, such as the Mongoose, are immune to snake venom.",
+            "To avoid predators, some snakes can poop whenever they want. They make themselves so dirty and smelly that predators will run away.",
+            "The heaviest snake in the world is the anaconda. It weighs over 595 pounds (270 kg) and can grow to over 30 feet (9m) long. It has been known to eat caimans, capybaras, and jaguars.",
+            "The Brahminy Blind Snake, or flowerpot snake, is the only snake species made up of solely females and, as such, does not need a mate to reproduce. It is also the most widespread terrestrial snake in the world.",
+            "If a person suddenly turned into a snake, they would be about 4 times longer than they are now and only a few inches thick. While humans have 24 ribs, some snakes can have more than 400",
+            "The most advanced snake species in the world is believed to be the black mamba. It has the most highly evolved venom delivery system of any snake on Earth. It can strike up to 12 times in a row, though just one bite is enough to kill a grown man."
         ]
+
     }
